@@ -89,6 +89,5 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Возвращаем результат пользователю
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	fmt.Fprintln(w, "Результат конвертации:")
 	fmt.Fprintln(w, result)
 }
