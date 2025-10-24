@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -15,10 +16,13 @@ type Server struct {
 
 // NewServer — создаёт новый сервер и регистрирует маршруты
 func NewServer(logger *log.Logger) *Server {
+	fmt.Println("Регистрация маршрутов...")
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", handlers.IndexHandler)
+	fmt.Println("Зарегистрирован маршрут: /")
 	mux.HandleFunc("/upload", handlers.UploadHandler)
+	fmt.Println("Зарегистрирован маршрут: /upload")
 
 	s := &http.Server{
 		Addr:         ":8080",
